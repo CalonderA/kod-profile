@@ -1,149 +1,283 @@
-﻿// 1. Создайте метод SayHello(), который выводит на экран строку "Привет, мир!".
-// 2. Вызовите его 3 раза.
-void SayHello()
+﻿Calonder, [15.12.2025 19:40]
+// Задание 1. Животные
+// Создайте базовый класс Animal, в котором есть:
+// свойство Name;
+// метод Eat(), который выводит:
+//  "Животное ест.".
+// Создайте два дочерних класса:
+// Dog — добавь метод Bark(), который выводит "Собака лает.";
+// Cat — добавь метод Meow(), который выводит "Кошка мяукает.".
+// Пример вызова:
+// var dog = new Dog();
+// dog.Name = "Шарик";
+// dog.Eat();
+// dog.Bark();
+
+// var cat = new Cat();
+// cat.Name = "Мурка";
+// cat.Eat();
+// cat.Meow();
+
+// Ожидаемый результат:
+// Шарик ест.
+// Собака лает.
+// Мурка ест.
+// Кошка мяукает.
+
+public class Animal
 {
-    Console.WriteLine("Привет, мир!");
-    Console.WriteLine("Привет, мир!");
-    Console.WriteLine("Привет, мир!");
-}
-SayHello();
-
-// 1. Создайте метод Greet(string name), который выводит "Привет, <имя>!".
-// 2. Вызовите его для разных имён (например, «Саша», «Ярослав», «Анна»).
-
-void Greet(string name)
-{
-    Console.WriteLine($"Привет, {name}!");
-}
-Greet("Саша");
-
-
-// Задание 3: Информация о пользователе
-// 1. Создайте метод PrintPerson(string name, int age, string city), который выводит информацию о человеке:
-// Имя: Егор Возраст: 15  Город: Москва
-
-// 2. Вызовите его для двух разных людей.
-
-
-void PrintPerson(string name, int age, string city)
-{
-    Console.WriteLine($"Имя: {name} Возраст: {age} Город: {city}");
-}
-PrintPerson("Егор",15,"Москва");
-
-
-// Создайте метод PrintPerson(string name, int age = 18, string hobby = "Не указано").
-// Если передать все параметры, то выводить все данные.
-// Если передать только имя, то остальные значения берутся по умолчанию.
-
-
-void PrintPerson(string name, int age = 18, string hobby = "Не указано")
-{
-    Console.WriteLine($"Имя: {name} Возраст: {age} Город: {hobby}");
-}
-PrintPerson("Егор",18,"машинки");
-
-
-// Задание 6. Метод-калькулятор
-// Создайте методы:
-// Add(int a, int b) — возвращает сумму,
-// Subtract(int a, int b) — разность,
-// Multiply(int a, int b) — произведение,
-// Divide(int a, int b) — частное (проверьте деление на 0).
-// Сделайте программу, которая:
-// Запрашивает у пользователя два числа и операцию (+, -, *, /).
-// Вызывает соответствующий метод.
-// Выводит результат.
-
-
-
- using System;
-
-class Program
-{
-
-    static void Add(int a, int b)
+    public string Name { get; set; }
+    public void Eat()
     {
-        int result = a + b;
-        Console.WriteLine($"{a} + {b} = {result}");
+        Console.WriteLine($"{Name} ест");
+    }
+}
+public class Dog : Animal
+{
+    public void Bark()
+    {
+        Console.WriteLine($"{Name} лает");
     }
 
-    static void Subtract(int a, int b)
+}
+
+public class Cat : Animal
+{
+    public void Meow()
     {
-        int result = a - b;
-        Console.WriteLine($"{a} - {b} = {result}");
+        Console.WriteLine($"{Name} мяукает");
     }
-    
-    static void Multiply(int a, int b)
+
+}
+public class Program
+{
+    public static void Main()
     {
-        int result = a * b;
-        Console.WriteLine($"{a} * {b} = {result}");
-    }
-    
-    static void Divide(int a, int b)
-    {
-        if (b == 0)
-        {
-            Console.WriteLine("Ошибка: деление на ноль!");
-        }
-        else
-        {
-            int result = a / b;
-            Console.WriteLine($"{a} / {b} = {result}");
-        }
-    }
-    
-    static void Main()
-    {
-        Console.Write("Введите первое число: ");
-        int num1 = Convert.ToInt32(Console.ReadLine());
-        
-        Console.Write("Введите второе число: ");
-        int num2 = Convert.ToInt32(Console.ReadLine());
-        
-        Console.Write("Введите операцию (+, -, *, /): ");
-        char operation = Convert.ToChar(Console.ReadLine());
-        
-        if (operation == '+')
-        {
-            Add(num1, num2);
-        }
-        else if (operation == '-')
-        {
-            Subtract(num1, num2);
-        }
-        else if (operation == '*')
-        {
-            Multiply(num1, num2);
-        }
-        else if (operation == '/')
-        {
-            Divide(num1, num2);
-        }
-        else
-        {
-            Console.WriteLine("Неизвестная операция!");
-        }
-        
+        var dog = new Dog();
+        dog.Name = "Шарик";
+        dog.Eat();   // метод родителя
+        dog.Bark();  // метод потомка
+        var cat = new Cat();
+        cat.Name = "Мурка";
+        cat.Eat();
+        cat.Meow();
+
     }
 }
 
-/////
+// Задание 2. Говорящие животные
 
-static int Multiply(int a, int b) // принимает два целых числа
+// В базовом классе Animal добавьте виртуальный метод:
+// public virtual void Speak()
+// {
+//     Console.WriteLine("Животное издаёт звук");
+// }
+
+// В классах Dog и Cat переопределите этот метод (override):
+// Dog выводит: "Собака говорит: Гав-гав!";
+// Cat выводит: "Кошка говорит: Мяу!"
+// Пример:
+// var dog = new Dog();
+// var cat = new Cat();
+
+// dog.Speak();
+// cat.Speak();
+
+public class Animal
 {
-    return a * b;
+    public virtual void Speak()
+    {
+        Console.WriteLine("Животное издаёт звук");
+    }
+}
+public class Dog : Animal
+{
+    public override void Speak()
+    {
+        Console.WriteLine("Собака говорит: Гав-гав!");
+    }
+}
+public class Cat : Animal
+{
+    public override void Speak()
+    {
+        Console.WriteLine("Кошка говорит: Мяу!");
+    }
+}
+public class Program
+{
+    public static void Main()
+    {
+        var dog = new Dog();
+        var cat = new Cat();
+
+        dog.Speak();
+        cat.Speak();
+
+    }
 }
 
-static int Multiply(int a, int b, int c) // принимает два дробных числа
+// Задание 2. Говорящие животные
+
+// В базовом классе Animal добавьте виртуальный метод:
+// public virtual void Speak()
+// {
+//     Console.WriteLine("Животное издаёт звук");
+// }
+
+// В классах Dog и Cat переопределите этот метод (override):
+// Dog выводит: "Собака говорит: Гав-гав!";
+// Cat выводит: "Кошка говорит: Мяу!"
+// Пример:
+// var dog = new Dog();
+// var cat = new Cat();
+
+// dog.Speak();
+// cat.Speak();
+
+public class Animal
 {
-    return a * b * c;
+    public virtual void Speak()
+    {
+        Console.WriteLine("Животное издаёт звук");
+    }
+}
+public class Dog : Animal
+{
+    public override void Speak()
+    {
+        Console.WriteLine("Собака говорит: Гав-гав!");
+    }
+}
+public class Cat : Animal
+{
+    public override void Speak()
+    {
+        Console.WriteLine("Кошка говорит: Мяу!");
+    }
+}
+public class Program
+{
+    public static void Main()
+    {
+        var dog = new Dog();
+        var cat = new Cat();
+
+        dog.Speak();
+        cat.Speak();
+
+    }
 }
 
-static double Multiply(double a, double b) // принимает три целых числа
+
+// Задание 4. Конструктор с base
+// В классе Animal добавьте конструктор:
+// public Animal(string name)
+// {
+//     Name = name;
+//     Console.WriteLine($"Создано животное: {Name}");
+// }
+
+
+// В классе Cat добавьте конструктор:
+// public Cat(string name) : base(name)
+// {
+//     Console.WriteLine($"Создана кошка по имени {Name}");
+// }
+
+
+// Пример:
+// var cat = new Cat("Мурка");
+
+
+// Ожидаемый результат:
+// Создано животное: Мурка
+// Создана кошка по имени Мурка
+
+
+public class Animal
 {
-    return a * b;
+    public string Name { get; set; }
+
+    public Animal(string name)
+    {
+        Name = name;
+        Console.WriteLine($"Создано животное по имени {name}");
+    }
 }
-Console.WriteLine(Multiply(2, 3));
-Console.WriteLine(Multiply(2, 3, 4));
-Console.WriteLine(Multiply(2.5, 4.0));
+
+public class Cat :Animal
+{
+    public Cat(string name) : base(name)
+    {
+        Console.WriteLine($"Создана кошка по имени {Name}");
+    }
+
+}
+public class Program
+{
+    public static void Main()
+    {
+        var cat = new Cat("Мурка");
+    }
+}
+
+
+// Задание 5. Многоуровневое наследование
+// Создайте три класса:
+// Transport — метод Drive() → "Транспорт движется";
+// Car (наследуется от Transport) → переопредели метод Drive() → "Машина едет по дороге";
+// ElectricCar (наследуется от Car) → переопредели метод Drive() → "Электромобиль тихо едет на батарее".
+
+
+// Пример:
+// var transport = new Transport();
+// var car = new Car();
+// var tesla = new ElectricCar();
+
+// transport.Drive();
+// car.Drive();
+// tesla.Drive();
+
+
+// Ожидаемый результат:
+// Транспорт движется
+// Машина едет по дороге
+// Электромобиль тихо едет на батарее
+
+public class Transport
+{
+    public virtual void Drive()
+    {
+        Console.WriteLine("Транспорт движется");
+    }
+}
+public class Car : Transport
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Машина едет по дороге");
+    }
+}
+public class ElectricCar : Transport
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Электромобиль тихо едет на батарее");
+    }
+}
+public class Program
+{
+    public static void Main()
+    {
+        var transport = new Transport();
+        var car = new Car();
+        var tesla = new ElectricCar();
+
+        transport.Drive();
+        car.Drive();
+        tesla.Drive();
+
+
+    }
+}
