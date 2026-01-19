@@ -1,0 +1,15 @@
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.AssemblyInfoInputs.cache
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.AssemblyInfo.cs
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.csproj.CoreCompileInputs.cache
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.sourcelink.json
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\bin\Debug\net10.0\19_01_26.exe
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\bin\Debug\net10.0\19_01_26.deps.json
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\bin\Debug\net10.0\19_01_26.runtimeconfig.json
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\bin\Debug\net10.0\19_01_26.dll
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\bin\Debug\net10.0\19_01_26.pdb
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.dll
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\refint\19_01_26.dll
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.pdb
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\19_01_26.genruntimeconfig.cache
+C:\Users\andro\Documents\GitHub\kod-profile\course-1\practices\praktika_15_01_26\19_01_26\obj\Debug\net10.0\ref\19_01_26.dll
