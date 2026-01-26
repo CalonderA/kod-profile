@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\publication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:publication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\ilibrarymanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:ilibrarymanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|c:\\users\\andro\\documents\\github\\kod-profile\\course-1\\practices\\26_01_2026\\publishinghouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46F6B432-8C6E-4F80-A783-FDCF38577767}|26_01_2026.csproj|solutionrelative:publishinghouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:28:47.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Publication.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Publication.cs",
+              "RelativeDocumentMoniker": "Publication.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Publication.cs",
+              "RelativeToolTip": "Publication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:28:24.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ILibraryManagement.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\ILibraryManagement.cs",
+              "RelativeDocumentMoniker": "ILibraryManagement.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\ILibraryManagement.cs",
+              "RelativeToolTip": "ILibraryManagement.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAD8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:27:36.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Reader.cs",
+              "RelativeDocumentMoniker": "Reader.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Reader.cs",
+              "RelativeToolTip": "Reader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:26:39.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Book.cs",
+              "RelativeDocumentMoniker": "Book.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\Book.cs",
+              "RelativeToolTip": "Book.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAuwFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:25:08.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PublishingHouse.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\PublishingHouse.cs",
+              "RelativeDocumentMoniker": "PublishingHouse.cs",
+              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\kod-profile\\course-1\\practices\\26_01_2026\\PublishingHouse.cs",
+              "RelativeToolTip": "PublishingHouse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T16:23:34.332Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
