@@ -1,0 +1,47 @@
+{
+  "Groups": [
+    {
+      "Group": "9A",
+      "Days": [
+        {
+          "Day": "Monday",
+          "Lessons": [
+            {
+              "Time": "2",
+              "Subject": "2",
+              "Teacher": "ПЕТРОВ",
+              "Classroom": "1",
+              "Note": "",
+              "IsRed": false
+            }
+          ]
+        },
+        {
+          "Day": "Tuesday",
+          "Lessons": [
+            {
+              "Time": "",
+              "Subject": "",
+              "Teacher": "",
+              "Classroom": "",
+              "Note": "",
+              "IsRed": false
+            }
+          ]
+        },
+        {
+          "Day": "Wednesday",
+          "Lessons": []
+        },
+        {
+          "Day": "Thursday",
+          "Lessons": []
+        },
+        {
+          "Day": "Friday",
+          "Lessons": []
+        }
+      ]
+    }
+  ]
+}
