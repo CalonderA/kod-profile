@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestingPlatform.Data;
 
@@ -10,9 +11,11 @@ using TestingPlatform.Data;
 namespace TestingPlatform.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260925140004_AddGroup")]
+    partial class AddGroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
@@ -30,18 +33,6 @@ namespace TestingPlatform.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "1 курс"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "2 курс"
-                        });
                 });
 
             modelBuilder.Entity("TestingPlatform.Models.Direction", b =>
@@ -57,23 +48,6 @@ namespace TestingPlatform.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Directions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Фронтенд"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Бэкенд"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Дизайн"
-                        });
                 });
 
             modelBuilder.Entity("TestingPlatform.Models.Group", b =>
@@ -119,18 +93,6 @@ namespace TestingPlatform.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "КОД"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "ПАЗЛ"
-                        });
                 });
 
             modelBuilder.Entity("TestingPlatform.Models.Student", b =>

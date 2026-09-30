@@ -6,34 +6,9 @@ namespace TestingPlatform.Models;
 public class Student
 {
     /// <summary>
-    /// Идентификатор студента
+    /// Идентификатор
     /// </summary>
     public int Id { get; set; }
-
-    /// <summary>
-    /// Логин
-    /// </summary>
-    public string Login { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Email
-    /// </summary>
-    public string Email { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Имя
-    /// </summary>
-    public string FirstName { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Отчество
-    /// </summary>
-    public string? MiddleName { get; set; }
-
-    /// <summary>
-    /// Фамилия
-    /// </summary>
-    public string LastName { get; set; } = string.Empty;
 
     /// <summary>
     /// Номер телефона
@@ -41,12 +16,13 @@ public class Student
     public string Phone { get; set; } = string.Empty;
 
     /// <summary>
-    /// Ссылка на профиль студента в ВК
+    /// Ссылка на профиль в ВК
     /// </summary>
     public string VkProfileLink { get; set; } = string.Empty;
 
     /// <summary>
-    /// Дата создания пользователя
+    /// 1:1 к пользователю (обязателен для студента)
     /// </summary>
-    public DateTimeOffset CreatedAt { get; set; }
+    public int UserId { get; set; }
+    public User User { get; set; } = null!;
 }

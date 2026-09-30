@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TestingPlatform.Data;
 using TestingPlatform.Models;
 
@@ -38,7 +39,7 @@ public class StudentsController : ControllerBase
     [HttpPost]
     public IActionResult CreateStudent([FromBody] Student student)
     {
-        var emailExists = _db.Students.Where(s => s.Email == student.Email).ToList();
+        var emailExists = _db.Students.Where(s => s.User.Email == student.User.Email).ToList();
         if (emailExists.Any())
             return Conflict("Такой email уже используется"); // 409
 
@@ -49,23 +50,19 @@ public class StudentsController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public IActionResult UpdateStudent([FromRoute] int id, [FromBody] Student student)
+    public IActionResult UpdateStudent([FromBody] Student student)
     {
-        if (id != student.Id)
-            return BadRequest("id в пути и в теле запроса не совпадают");
-
-        if (id <= 0)
-            return BadRequest("Некорректный id");
-
-        var exists = _db.Students.Any(s => s.Id == id);
+        // Any не отслеживает сущность: иначе Entry(student) конфликтовал бы
+        // с уже отслеживаемым экземпляром того же студента (ошибка 500)
+        var exists = _db.Students.Any(s => s.Id == student.Id);
         if (!exists)
             return NotFound();
 
-        var emailExists = _db.Students.FirstOrDefault(s => s.Email == student.Email && s.Id != id);
-        if (emailExists is not null)
+        var emailInUse = _db.Students.Any(s => s.User.Email == student.User.Email && s.Id != student.Id);
+        if (emailInUse)
             return Conflict("Такой email уже используется"); // 409
 
-        _db.Students.Update(student);
+        _db.Entry(student).State = EntityState.Modified;
         _db.SaveChanges();
 
         return NoContent(); // 204
