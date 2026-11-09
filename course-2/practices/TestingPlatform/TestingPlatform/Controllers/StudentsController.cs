@@ -1,0 +1,91 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using TestingPlatform.Application.Dtos;
+using TestingPlatform.Application.Interfaces;
+using TestingPlatform.Domain.Enums;
+using TestingPlatform.Requests.Student;
+using TestingPlatform.Responses.Student;
+
+namespace TestingPlatform.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class StudentsController(
+    IStudentRepository studentRepository,
+    IUserRepository userRepository,
+    IMapper mapper) : ControllerBase
+{
+    /// <summary>
+    /// Получить список студентов
+    /// </summary>
+    [HttpGet]
+    public async Task<IActionResult> GetStudents()
+    {
+        var students = await studentRepository.GetAllAsync();
+
+        return Ok(mapper.Map<IEnumerable<StudentResponse>>(students));
+    }
+
+    /// <summary>
+    /// Получить данные студента по Id
+    /// </summary>
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetStudentById(int id)
+    {
+        var student = await studentRepository.GetByIdAsync(id);
+
+        return Ok(mapper.Map<StudentResponse>(student));
+    }
+
+    /// <summary>
+    /// Добавить студента
+    /// </summary>
+    [HttpPost]
+    public async Task<IActionResult> CreateStudent([FromBody] CreateStudentRequest student)
+    {
+        var userDto = new UserDto
+        {
+            Login = student.Login,
+            Password = student.Password,
+            Email = student.Email,
+            FirstName = student.FirstName,
+            MiddleName = student.MiddleName,
+            LastName = student.LastName,
+            Role = UserRole.Student
+        };
+        var userId = await userRepository.CreateAsync(userDto);
+
+        var studentDto = new StudentDto
+        {
+            UserId = userId,
+            Phone = student.Phone,
+            VkProfileLink = student.VkProfileLink
+        };
+
+        var studentId = await studentRepository.CreateAsync(studentDto);
+
+        return StatusCode(StatusCodes.Status201Created, new { Id = studentId });
+    }
+
+    /// <summary>
+    /// Обновить данные о студенте
+    /// </summary>
+    [HttpPut]
+    public async Task<IActionResult> UpdateStudent([FromBody] UpdateStudentRequest student)
+    {
+        await studentRepository.UpdateAsync(mapper.Map<StudentDto>(student));
+
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Удалить студента
+    /// </summary>
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteStudent(int id)
+    {
+        await studentRepository.DeleteAsync(id);
+
+        return NoContent();
+    }
+}
