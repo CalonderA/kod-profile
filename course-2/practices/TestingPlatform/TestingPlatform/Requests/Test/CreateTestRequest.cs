@@ -19,7 +19,12 @@ public class CreateTestRequest
     public DateTime PublishedAt { get; set; }
     public DateTime Deadline { get; set; }
     public int? DurationMinutes { get; set; }
-    public bool IsPublic { get; set; }
     public int? PassingScore { get; set; }
     public int? MaxAttempts { get; set; }
+
+    public List<int> Students { get; set; } = [];
+    public List<int> Projects { get; set; } = [];
+    public List<int> Courses { get; set; } = [];
+    public List<int> Groups { get; set; } = [];
+    public List<int> Directions { get; set; } = [];
 }

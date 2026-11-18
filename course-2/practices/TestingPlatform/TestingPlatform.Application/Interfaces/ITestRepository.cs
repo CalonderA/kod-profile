@@ -42,4 +42,29 @@ public interface ITestRepository
     /// Удалить тест.
     /// </summary>
     Task DeleteAsync(int id);
+
+    /// <summary>
+    /// Количество тестов по типам.
+    /// </summary>
+    Task<IEnumerable<object>> GetTestCountByTypeAsync();
+
+    /// <summary>
+    /// Средняя длительность и средний проходной балл по курсам.
+    /// </summary>
+    Task<IEnumerable<object>> GetCourseStatsAsync();
+
+    /// <summary>
+    /// Средние показатели тестов по направлениям.
+    /// </summary>
+    Task<IEnumerable<object>> GetDirectionAveragesAsync();
+
+    /// <summary>
+    /// Количество тестов по публичности и месяцу публикации.
+    /// </summary>
+    Task<IEnumerable<object>> GetTestTimelineByPublicAsync();
+
+    /// <summary>
+    /// Топ групп по количеству назначенных тестов.
+    /// </summary>
+    Task<IEnumerable<object>> GetTopGroupsByTestCountAsync(int top = 10);
 }

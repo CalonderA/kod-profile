@@ -1,36 +1,68 @@
-// Временно отключено при переходе на многослойную архитектуру:
-// код контроллеров будет вынесен в отдельный слой (Application/Presentation).
-/*
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TestingPlatform.Application.Dtos;
+using TestingPlatform.Application.Interfaces;
+using TestingPlatform.Requests.Question;
+using TestingPlatform.Responses.Question;
 
 namespace TestingPlatform.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class QuestionsController : ControllerBase
+public class QuestionsController(IQuestionRepository questionRepository, IMapper mapper) : ControllerBase
 {
+    /// <summary>
+    /// Получить список вопросов
+    /// </summary>
     [HttpGet]
-    public IActionResult GetAllQuestions() => Ok("Список всех вопросов");
-
-    [HttpGet("{id:int}")]
-    public IActionResult GetQuestionById(int id)
+    public async Task<IActionResult> GetAllQuestions()
     {
-        if (id == 1)
-            return Ok("Вопрос 1");
-        return NotFound();
+        var questions = await questionRepository.GetAllAsync();
+
+        return Ok(mapper.Map<IEnumerable<QuestionResponse>>(questions));
     }
 
-    [HttpGet("by-test/{testId:int}")]
-    public IActionResult GetQuestionsByTestId(int testId) => Ok($"Вопросы для теста {testId}");
+    /// <summary>
+    /// Получить вопрос по идентификатору
+    /// </summary>
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetQuestionById(int id)
+    {
+        var question = await questionRepository.GetByIdAsync(id);
 
+        return Ok(mapper.Map<QuestionResponse>(question));
+    }
+
+    /// <summary>
+    /// Создать вопрос
+    /// </summary>
     [HttpPost]
-    public IActionResult CreateQuestion() => Created("/api/questions/1", "Вопрос создан");
+    public async Task<IActionResult> CreateQuestion([FromBody] CreateQuestionRequest question)
+    {
+        var id = await questionRepository.CreateAsync(mapper.Map<QuestionDto>(question));
 
-    [HttpPut("{id:int}")]
-    public IActionResult UpdateQuestion(int id) => NoContent();
+        return StatusCode(StatusCodes.Status201Created, new { Id = id });
+    }
 
+    /// <summary>
+    /// Обновить вопрос
+    /// </summary>
+    [HttpPut]
+    public async Task<IActionResult> UpdateQuestion([FromBody] UpdateQuestionRequest question)
+    {
+        await questionRepository.UpdateAsync(mapper.Map<QuestionDto>(question));
+
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Удалить вопрос
+    /// </summary>
     [HttpDelete("{id:int}")]
-    public IActionResult DeleteQuestion(int id) => NoContent();
-}
+    public async Task<IActionResult> DeleteQuestion(int id)
+    {
+        await questionRepository.DeleteAsync(id);
 
-*/
+        return NoContent();
+    }
+}

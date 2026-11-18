@@ -22,7 +22,32 @@ public class TestsController(ITestRepository testRepository, IMapper mapper) : C
     {
         var tests = await testRepository.GetAllAsync(isPublic, groupIds ?? [], studentIds ?? []);
 
-        return Ok(mapper.Map<IEnumerable<TestResponse>>(tests));
+        return Ok(mapper.Map<IEnumerable<TestForManagerResponse>>(tests));
+    }
+
+    /// <summary>
+    /// Получить список тестов для менеджера
+    /// </summary>
+    [HttpGet("manage")]
+    public async Task<IActionResult> GetAllTestsForManager(
+        [FromQuery] bool? isPublic,
+        [FromQuery] List<int>? groupIds,
+        [FromQuery] List<int>? studentIds)
+    {
+        var tests = await testRepository.GetAllAsync(isPublic, groupIds ?? [], studentIds ?? []);
+
+        return Ok(mapper.Map<IEnumerable<TestForManagerResponse>>(tests));
+    }
+
+    /// <summary>
+    /// Получить тест по идентификатору для менеджера
+    /// </summary>
+    [HttpGet("{id:int}/manage")]
+    public async Task<IActionResult> GetTestByIdForManager(int id)
+    {
+        var test = await testRepository.GetByIdAsync(id);
+
+        return Ok(mapper.Map<TestForManagerResponse>(test));
     }
 
     /// <summary>
@@ -33,7 +58,7 @@ public class TestsController(ITestRepository testRepository, IMapper mapper) : C
     {
         var tests = await testRepository.GetAllForStudent(studentId);
 
-        return Ok(mapper.Map<IEnumerable<TestResponse>>(tests));
+        return Ok(mapper.Map<IEnumerable<TestForStudentResponse>>(tests));
     }
 
     /// <summary>
@@ -44,7 +69,23 @@ public class TestsController(ITestRepository testRepository, IMapper mapper) : C
     {
         var tests = await testRepository.GetTopRecentAsync(count);
 
-        return Ok(mapper.Map<IEnumerable<TestResponse>>(tests));
+        return Ok(mapper.Map<IEnumerable<TestForStudentResponse>>(tests));
+    }
+
+    /// <summary>
+    /// Статистика по тестам (LINQ-практика)
+    /// </summary>
+    [HttpGet("statistics")]
+    public async Task<IActionResult> GetStatistics([FromQuery] int top = 10)
+    {
+        return Ok(new
+        {
+            ByType = await testRepository.GetTestCountByTypeAsync(),
+            ByCourse = await testRepository.GetCourseStatsAsync(),
+            ByDirection = await testRepository.GetDirectionAveragesAsync(),
+            Timeline = await testRepository.GetTestTimelineByPublicAsync(),
+            TopGroups = await testRepository.GetTopGroupsByTestCountAsync(top)
+        });
     }
 
     /// <summary>
@@ -55,7 +96,7 @@ public class TestsController(ITestRepository testRepository, IMapper mapper) : C
     {
         var test = await testRepository.GetByIdAsync(id);
 
-        return Ok(mapper.Map<TestResponse>(test));
+        return Ok(mapper.Map<TestForManagerResponse>(test));
     }
 
     /// <summary>

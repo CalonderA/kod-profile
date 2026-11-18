@@ -18,6 +18,11 @@ public class StudentProfile : Profile
             .ForMember(d => d.Phone, m => m.MapFrom(s => s.Phone))
             .ForMember(d => d.VkProfileLink, m => m.MapFrom(s => s.VkProfileLink));
 
+        CreateMap<StudentDto, StudentForTestResponse>()
+            .ForMember(d => d.FirstName, m => m.MapFrom(s => s.User.FirstName))
+            .ForMember(d => d.MiddleName, m => m.MapFrom(s => s.User.MiddleName))
+            .ForMember(d => d.LastName, m => m.MapFrom(s => s.User.LastName));
+
         CreateMap<UpdateStudentRequest, StudentDto>();
     }
 }

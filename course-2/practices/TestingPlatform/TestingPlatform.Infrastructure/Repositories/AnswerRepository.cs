@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TestingPlatform.Application.Dtos;
 using TestingPlatform.Application.Interfaces;
 using TestingPlatform.Domain.Models;
+using TestingPlatform.Infrastructure.Exceptions;
 
 namespace TestingPlatform.Infrastructure.Repositories;
 
@@ -23,7 +24,7 @@ public class AnswerRepository(AppDbContext appDbContext, IMapper mapper) : IAnsw
 
         if (answer == null)
         {
-            throw new Exception("Ответ не найден.");
+            throw new EntityNotFoundException("Ответ не найден.");
         }
 
         return mapper.Map<AnswerDto>(answer);
@@ -45,7 +46,7 @@ public class AnswerRepository(AppDbContext appDbContext, IMapper mapper) : IAnsw
 
         if (answer == null)
         {
-            throw new Exception("Ответ не найден.");
+            throw new EntityNotFoundException("Ответ не найден.");
         }
 
         answer.Text = answerDto.Text;
@@ -61,7 +62,7 @@ public class AnswerRepository(AppDbContext appDbContext, IMapper mapper) : IAnsw
 
         if (answer == null)
         {
-            throw new Exception("Ответ не найден.");
+            throw new EntityNotFoundException("Ответ не найден.");
         }
 
         appDbContext.Answers.Remove(answer);

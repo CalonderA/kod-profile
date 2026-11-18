@@ -10,6 +10,7 @@ public class GroupProfile : Profile
     public GroupProfile()
     {
         CreateMap<GroupDto, GroupResponse>();
+        CreateMap<GroupDto, ShortGroupResponse>();
         CreateMap<CreateGroupRequest, GroupDto>()
             .ForMember(d => d.Direction, o => o.MapFrom(s => s.DirectionId > 0 ? new DirectionDto { Id = s.DirectionId } : (DirectionDto?)null))
             .ForMember(d => d.Course, o => o.MapFrom(s => s.CourseId > 0 ? new CourseDto { Id = s.CourseId } : (CourseDto?)null))
